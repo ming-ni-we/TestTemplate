@@ -1,0 +1,49 @@
+﻿<Window
+    x:Class="TestItemTemplate.ViewModels.Windows.LoginWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:TestItemTemplate.Views.Windows"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    Title="LoginWindow"
+    Width="370"
+    Height="250"
+    ui:Design.Background="{DynamicResource ApplicationBackgroundBrush}"
+    ui:Design.Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+    Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+    mc:Ignorable="d">
+    <Grid Background="{DynamicResource ApplicationBackgroundBrush}">
+        <ui:Card
+            Width="320"
+            VerticalAlignment="Center"
+            Background="{DynamicResource ApplicationBackgroundBrush}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80" />
+                    <ColumnDefinition Width="200" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                </Grid.RowDefinitions>
+                <TextBlock
+                    Grid.Row="0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Text="密码" />
+                <ui:PasswordBox
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Password="{Binding Password, UpdateSourceTrigger=PropertyChanged}"
+                    PasswordChanged="PasswordBox_PasswordChanged" />
+                <ui:Button
+                    Grid.Row="2"
+                    Grid.ColumnSpan="2"
+                    HorizontalAlignment="Center"
+                    Click="Button_Click"
+                    Content="Login" />
+            </Grid>
+        </ui:Card>
+    </Grid>
+</Window>

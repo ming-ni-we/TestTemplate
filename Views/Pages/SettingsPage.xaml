@@ -1,0 +1,440 @@
+﻿<Page
+    x:Class="TestItemTemplate.Views.Pages.SettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:helpers="clr-namespace:TestItemTemplate.Helpers"
+    xmlns:local="clr-namespace:TestItemTemplate.Views.Pages"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    Title="SettingsPage"
+    d:DataContext="{d:DesignInstance local:SettingsPage,
+                                     IsDesignTimeCreatable=False}"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    ui:Design.Background="{DynamicResource ApplicationBackgroundBrush}"
+    ui:Design.Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+    Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <helpers:EnumToBooleanConverter x:Key="EnumToBooleanConverter" />
+    </Page.Resources>
+
+    <StackPanel>
+
+        <ui:Card Margin="20">
+            <StackPanel Orientation="Horizontal">
+                <StackPanel>
+                    <ui:ToggleSwitch
+                        Margin="10"
+                        Checked="ToggleSwitch_Checked"
+                        Content="启用MES"
+                        IsChecked="{Binding ViewModel.IsMes}"
+                        Unchecked="ToggleSwitch_Unchecked" />
+                    <ui:ToggleSwitch
+                        Margin="10"
+                        Checked="ToggleSwitch_Checked"
+                        Content="测试失败后是否继续测试"
+                        IsChecked="{Binding ViewModel.AfterFailContinue}"
+                        Unchecked="ToggleSwitch_Unchecked" />
+                    <StackPanel Margin="10,0,0,10" Orientation="Horizontal">
+                        <TextBlock
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Width="100"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Text="制热后最低温度" />
+                        <ui:TextBox
+                            Grid.Column="1"
+                            Width="130"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Center"
+                            Text="{Binding ViewModel.MinHotTemperature}" />
+                        <TextBlock
+                            Grid.Column="2"
+                            VerticalAlignment="Center"
+                            Text="°C" />
+                    </StackPanel>
+
+                    <StackPanel Margin="10,0,0,10" Orientation="Horizontal">
+                        <TextBlock
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Width="100"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Text="制热后最高温度" />
+                        <ui:TextBox
+                            Grid.Column="1"
+                            Width="130"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Center"
+                            Text="{Binding ViewModel.MaxHotTemperature}" />
+                        <TextBlock
+                            Grid.Column="2"
+                            VerticalAlignment="Center"
+                            Text="°C" />
+                    </StackPanel>
+                    <StackPanel Margin="10,0,0,10" Orientation="Horizontal">
+                        <TextBlock
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Width="100"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Text="制冷后最低温度" />
+                        <ui:TextBox
+                            Grid.Column="1"
+                            Width="130"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Center"
+                            Text="{Binding ViewModel.MinColdTemperature}" />
+                        <TextBlock
+                            Grid.Column="2"
+                            VerticalAlignment="Center"
+                            Text="°C" />
+                    </StackPanel>
+                    <StackPanel Margin="10,0,0,10" Orientation="Horizontal">
+                        <TextBlock
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Width="100"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Text="制冷后最高温度" />
+                        <ui:TextBox
+                            Grid.Column="1"
+                            Width="130"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Center"
+                            Text="{Binding ViewModel.MaxColdTemperature}" />
+                        <TextBlock
+                            Grid.Column="2"
+                            VerticalAlignment="Center"
+                            Text="°C" />
+                    </StackPanel>
+                    <StackPanel Margin="10,0,0,10" Orientation="Horizontal">
+                        <TextBlock
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Width="100"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Text="湿度最小降低值" />
+                        <ui:TextBox
+                            Grid.Column="1"
+                            Width="130"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Center"
+                            Text="{Binding ViewModel.DeHumudityValue}" />
+                        <TextBlock
+                            Grid.Column="2"
+                            VerticalAlignment="Center"
+                            Text="%" />
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock
+                            Width="100"
+                            Margin="10,0,0,0"
+                            HorizontalAlignment="Left"
+                            FontSize="18"
+                            FontWeight="Bold"
+                            Text="SN码规则" />
+
+                        <StackPanel Margin="10,0,0,10" Orientation="Horizontal">
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                Width="100"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Text="SN码位数" />
+                            <ui:TextBox
+                                Grid.Column="1"
+                                Width="130"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Center"
+                                Text="{Binding ViewModel.SnLength}" />
+                            <TextBlock
+                                Grid.Column="2"
+                                VerticalAlignment="Center"
+                                Text="位" />
+                        </StackPanel>
+                        <StackPanel Margin="10,0,0,10" Orientation="Horizontal">
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                Width="100"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Text="SN码规则" />
+                            <TextBox
+                                x:Name="SnRuleTextBox"
+                                Grid.Column="1"
+                                Width="250"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Center"
+                                LostFocus="TextBox_LostFocus"
+                                Text="{Binding ViewModel.SnRule}"
+                                TextChanged="SnRuleTextBox_TextChanged" />
+                            <TextBlock VerticalAlignment="Center" Text="{Binding SnLen, Mode=TwoWay}" />
+                        </StackPanel>
+
+                        <StackPanel Margin="10,0,0,10" Orientation="Horizontal">
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                Width="100"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Text="上位机名称" />
+                            <ui:TextBox
+                                Grid.Column="1"
+                                Width="200"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Center"
+                                Text="{Binding ViewModel.ApplicationName}" />
+                        </StackPanel>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock
+                            Width="100"
+                            Margin="10"
+                            VerticalAlignment="Center"
+                            Text="空调串口" />
+                        <ComboBox
+                            Width="200"
+                            Margin="10"
+                            ItemsSource="{Binding ViewModel.AvailablePorts, Mode=OneWay}"
+                            SelectedItem="{Binding ViewModel.AirControlerCom}" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock
+                            Width="100"
+                            Margin="10"
+                            VerticalAlignment="Center"
+                            Text="测试设备串口" />
+                        <ComboBox
+                            Width="200"
+                            Margin="10"
+                            ItemsSource="{Binding ViewModel.AvailablePorts, Mode=OneWay}"
+                            SelectedItem="{Binding ViewModel.TemperatureReaderCom}" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock
+                            Width="100"
+                            Margin="10"
+                            VerticalAlignment="Center"
+                            Text="设备开关串口" />
+                        <ComboBox
+                            Width="200"
+                            Margin="10"
+                            ItemsSource="{Binding ViewModel.AvailablePorts, Mode=OneWay}"
+                            SelectedItem="{Binding ViewModel.IoControlCom}" />
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel>
+
+                    <StackPanel Margin="10,0,0,10" Orientation="Horizontal">
+                        <TextBlock
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Width="100"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Text="送风最低功率" />
+                        <ui:TextBox
+                            Grid.Column="1"
+                            Width="130"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Center"
+                            Text="{Binding ViewModel.MinFanPower}" />
+                        <TextBlock
+                            Grid.Column="2"
+                            VerticalAlignment="Center"
+                            Text="W" />
+                    </StackPanel>
+                    <StackPanel Margin="10,0,0,10" Orientation="Horizontal">
+                        <TextBlock
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Width="100"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Text="送风最高功率" />
+                        <ui:TextBox
+                            Grid.Column="1"
+                            Width="130"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Center"
+                            Text="{Binding ViewModel.MaxFanPower}" />
+                        <TextBlock
+                            Grid.Column="2"
+                            VerticalAlignment="Center"
+                            Text="W" />
+                    </StackPanel>
+                    <StackPanel Margin="10,0,0,10" Orientation="Horizontal">
+                        <TextBlock
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Width="100"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Text="加热最低功率" />
+                        <ui:TextBox
+                            Grid.Column="1"
+                            Width="130"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Center"
+                            Text="{Binding ViewModel.MinHotPower}" />
+                        <TextBlock
+                            Grid.Column="2"
+                            VerticalAlignment="Center"
+                            Text="W" />
+                    </StackPanel>
+                    <StackPanel Margin="10,0,0,10" Orientation="Horizontal">
+                        <TextBlock
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Width="100"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Text="加热最高功率" />
+                        <ui:TextBox
+                            Grid.Column="1"
+                            Width="130"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Center"
+                            Text="{Binding ViewModel.MaxHotPower}" />
+                        <TextBlock
+                            Grid.Column="2"
+                            VerticalAlignment="Center"
+                            Text="W" />
+                    </StackPanel>
+                    <StackPanel Margin="10,0,0,10" Orientation="Horizontal">
+                        <TextBlock
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Width="100"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Text="制冷最低功率" />
+                        <ui:TextBox
+                            Grid.Column="1"
+                            Width="130"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Center"
+                            Text="{Binding ViewModel.MinColdPower}" />
+                        <TextBlock
+                            Grid.Column="2"
+                            VerticalAlignment="Center"
+                            Text="W" />
+                    </StackPanel>
+                    <StackPanel Margin="10,0,0,10" Orientation="Horizontal">
+                        <TextBlock
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Width="100"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Text="制冷最高功率" />
+                        <ui:TextBox
+                            Grid.Column="1"
+                            Width="130"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Center"
+                            Text="{Binding ViewModel.MaxColdPower}" />
+                        <TextBlock
+                            Grid.Column="2"
+                            VerticalAlignment="Center"
+                            Text="W" />
+                    </StackPanel>
+
+                    <StackPanel Margin="10,0,0,10" Orientation="Horizontal">
+                        <TextBlock
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Width="100"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Text="除湿最低功率" />
+                        <ui:TextBox
+                            Grid.Column="1"
+                            Width="130"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Center"
+                            Text="{Binding ViewModel.MinDehumidificationPower}" />
+                        <TextBlock
+                            Grid.Column="2"
+                            VerticalAlignment="Center"
+                            Text="W" />
+                    </StackPanel>
+                    <StackPanel Margin="10,0,0,10" Orientation="Horizontal">
+                        <TextBlock
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Width="100"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Text="除湿最高功率" />
+                        <ui:TextBox
+                            Grid.Column="1"
+                            Width="130"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Center"
+                            Text="{Binding ViewModel.MaxDehumidificationPower}" />
+                        <TextBlock
+                            Grid.Column="2"
+                            VerticalAlignment="Center"
+                            Text="W" />
+                    </StackPanel>
+
+                    <StackPanel Margin="10,0,0,10" Orientation="Horizontal">
+                        <TextBlock
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Width="100"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Text="停机最低功率" />
+                        <ui:TextBox
+                            Grid.Column="1"
+                            Width="130"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Center"
+                            Text="{Binding ViewModel.MinStopPower}" />
+                        <TextBlock
+                            Grid.Column="2"
+                            VerticalAlignment="Center"
+                            Text="W" />
+                    </StackPanel>
+                    <StackPanel Margin="10,0,0,10" Orientation="Horizontal">
+                        <TextBlock
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Width="100"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Text="停机最高功率" />
+                        <ui:TextBox
+                            Grid.Column="1"
+                            Width="130"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Center"
+                            Text="{Binding ViewModel.MaxStopPower}" />
+                        <TextBlock
+                            Grid.Column="2"
+                            VerticalAlignment="Center"
+                            Text="W" />
+                    </StackPanel>
+                    <Button
+                        Margin="10"
+                        Command="{Binding ViewModel.SaveSettingCommand}"
+                        Content="保存配置" />
+                </StackPanel>
+            </StackPanel>
+        </ui:Card>
+    </StackPanel>
+</Page>
